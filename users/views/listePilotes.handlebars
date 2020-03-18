@@ -1,0 +1,20 @@
+{{> repertoirePilotesPartial}}
+
+<table class="listePil">
+   <tr>
+     {{#each listePilotes}}
+         <td><a href="/afficherPilote/{{this.pilnum}}"><img class ="photoPilote" src="/image/pilote/{{phoadresse}}" alt="Photo du pilote {{pilprenom}} {{pilnom}}" /></a></td>
+     {{/each}}
+   </tr>
+   <tr>
+     {{#each listePilotes}}
+     <td class="prenomPil">{{pilprenom}}</td>
+     {{/each}}
+   </tr>
+   <tr>
+     {{#each listePilotes}}
+     <td class="nomPil">{{pilnom}}</td>
+     {{/each}}
+   </tr>
+</table>
+<br class="myboth" />

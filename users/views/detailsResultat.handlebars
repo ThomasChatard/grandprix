@@ -1,0 +1,37 @@
+{{> listerGpPartial}}
+
+{{#each detailGp}}
+
+<h3 class="non">{{gpnom}} ({{formatDate gpdate 'DD/MM/YYYY'}})</h3>
+
+{{/each}}
+
+<table class="tableResultat">
+  <thead>
+    <tr>
+      <th class="contenuTableResultat">Place</th>
+      <th class="contenuTableResultat">Pilote</th>
+      <th class="contenuTableResultat">Temps</th>
+      <th class="contenuTableResultat">Nb points</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each detailResultat}}
+    <tr>
+      <td class="contenuTableResultat"> {{ptplace}} </td>
+      <td class="contenuTableResultat"> {{pilnom}} {{pilprenom}} </td>
+      <td class="contenuTableResultat"> {{tempscourse}} </td>
+      <td class="contenuTableResultat"> {{ptnbpointsplace}} </td>
+    </tr>
+    {{/each}}
+  </tbody>
+
+</table>
+<br/>
+
+{{#each detailGp}}
+
+{{gpcommentaire}}
+
+{{/each}}

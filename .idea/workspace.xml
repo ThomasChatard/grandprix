@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cb667d9e-603e-40ff-9aa6-1f251e543911" name="Default Changelist" comment="les push de clément">
+      <change beforePath="$PROJECT_DIR$/users/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/users/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/users/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/users/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/admin" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="ProjectId" id="1YszJPQK9xGhOsvFxPGFCPtB4VX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb667d9e-603e-40ff-9aa6-1f251e543911" name="Default Changelist" comment="" />
+      <created>1583746019555</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583746019555</updated>
+      <workItem from="1583746030228" duration="49000" />
+      <workItem from="1583746113291" duration="182000" />
+      <workItem from="1583746336185" duration="5042000" />
+      <workItem from="1583764413060" duration="20000" />
+      <workItem from="1584454208561" duration="1884000" />
+    </task>
+    <task id="LOCAL-00001" summary="les push de clément">
+      <created>1584454735354</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1584454735354</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="les push de clément" />
+    <option name="LAST_COMMIT_MESSAGE" value="les push de clément" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1584455153644">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584455153644" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1584455162288">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584455162288" />
+  </component>
+</project>

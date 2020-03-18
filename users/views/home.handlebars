@@ -1,0 +1,19 @@
+<h1>Ecrire ici la page d'accueil du site</h1>
+
+<table class="tabacc">
+	 {{#each dernierResultat}}
+   <tr>
+      <td class="titreAccueil">DERNIERS RESULTATS</td>
+    </tr>
+		<tr>
+      <td><strong>{{gpnom}} du {{formatDate gpdate 'DD/MM/YYYY'}}</strong></td>
+    </tr>
+    <tr>
+      <td>Mise à jour le : {{formatDate gpdatemaj 'DD/MM/YYYY'}} </td>
+    </tr>
+    <tr>
+      <td><a href="/detailResultat/{{this.gpnum}}">Voir les résultats</a></td>
+    </tr>
+ {{/each}}
+</table>
+<br class="myboth" />

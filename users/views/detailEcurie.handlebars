@@ -1,0 +1,49 @@
+{{#each detailEcurie}}
+<h1>Détail de l'écurie {{ecunom}}</h1>
+{{/each}}
+
+<div class = menuEcu>
+  {{> listerEcuriePartial}}
+
+  {{#each detailEcurie}}
+  <img class ="photoEcurie" src="/image/ecurie/{{ecuadresseimage}}" alt="Photo de l&apos;écurie {{ecunom}}" />
+</div>
+<p><strong>Nom :</strong> {{ecunom}} </p>
+<p><strong>Directeur :</strong> {{ecunomdir}} </p>
+<p><strong>Adresse :</strong> {{ecuadrsiege}} </p>
+<p><strong>Pays :</strong> {{paynom}} </p>
+
+{{#if fpnom}}
+<p><strong>Fournisseur de pneumatiques : </strong>{{fpnom}}</p>
+{{/if}}
+{{/each}}
+
+{{#if piloteEcurie}}
+<p><strong>Pilotes :</strong></p>
+{{#each piloteEcurie}}
+<div class="infobulle">
+  <a href=""><p>{{pilprenom}} {{pilnom}}</p></a>
+  <span class="contenuInfobulle"><img class ="photoPilote" src="/image/pilote/{{phoadresse}}" alt="Photo du pilote {{pilprenom}} {{pilnom}}"/><p><strong>{{pilnom}} {{pilprenom}}</strong></p><p>{{piltexte}}</p></span>
+</div>
+{{/each}}
+<table class="listeVoitureEcu">
+  <tr>
+    {{#each voitureEcurie}}
+    <td><img class ="photoVoiture" src="/image/ecurie/voiture/{{voiadresseimage}}" alt="Photo de la voiture {{voinom}}" /></td>
+    {{/each}}
+  </tr>
+  <tr>
+    {{#each voitureEcurie}}
+    <td class="nomVoiture">{{voinom}}</td>
+    {{/each}}
+  </tr>
+  <tr>
+    {{#each voitureEcurie}}
+    <td class="typeVoiture">{{typelibelle}}</td>
+    {{/each}}
+  </tr>
+</table>
+{{else}}
+Cette écurie ne participe pas au championnat cette année
+{{/if}}
+<br class="myboth" />

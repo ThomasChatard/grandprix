@@ -1,0 +1,40 @@
+<h1>Administration :</h1>
+<table class="tabCo">
+    <tr>
+        <td>
+            <p> login :</p>
+        </td>
+        <td>
+            <input type="text"  name="login" alt="name">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Mot de passe :
+        </td>
+        <td>
+            <input type="password"  name="password" alt="password">
+        </td>
+    </tr>
+
+
+</table>
+
+
+<table class="tabacc">
+	 {{#each dernierResultat}}
+   <tr>
+      <td class="titreAccueil">DERNIERS RESULTATS</td>
+    </tr>
+		<tr>
+      <td><strong>{{gpnom}} du {{formatDate gpdate 'DD/MM/YYYY'}}</strong></td>
+    </tr>
+    <tr>
+      <td>Mise à jour le : {{formatDate gpdatemaj 'DD/MM/YYYY'}} </td>
+    </tr>
+    <tr>
+      <td><a href="/detailResultat/{{this.gpnum}}">Voir les résultats</a></td>
+    </tr>
+ {{/each}}
+</table>
+<br class="myboth" />
