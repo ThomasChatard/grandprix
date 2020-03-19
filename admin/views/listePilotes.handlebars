@@ -1,20 +1,22 @@
-{{> repertoirePilotesPartial}}
-
+<img src="/image/cat_pilote.png" alt="Gestion des pilotes">
+<h2>Gestion des Pilotes</h2>
+<img src="/image/act_add.png" alt="Ajouter"/><a href="/pilotes/ajouterpilote"> Ajouter un pilote</a>
+<br/><br/>
 <table class="listePil">
    <tr>
-     {{#each listePilotes}}
-         <td><a href="/afficherPilote/{{this.pilnum}}"><img class ="photoPilote" src="/image/pilote/{{phoadresse}}" alt="Photo du pilote {{pilprenom}} {{pilnom}}" /></a></td>
-     {{/each}}
+     <th>Nom</th>
+     <th>Prénom</th>
+     <th>Date de naissance</th>
+     <th>Actions</th>
    </tr>
-   <tr>
-     {{#each listePilotes}}
-     <td class="prenomPil">{{pilprenom}}</td>
-     {{/each}}
-   </tr>
-   <tr>
-     {{#each listePilotes}}
-     <td class="nomPil">{{pilnom}}</td>
-     {{/each}}
-   </tr>
+
+   {{#each listePilotes}}
+    <tr>
+      <td>{{pilnom}}</td>
+      <td>{{pilprenom}}</td>
+      <td>{{formatDate pildatenais 'DD/MM/YYYY'}}</td>
+      <td><img src="/image/act_edit.png" alt="Modifier"/><a href="/pilotes/modifierpilote/{{pilnum}}"> Modifier </a><img src="/image/act_delete.png" alt="Supprimer"/><a href="/pilotes/supprimerpilote/{{pilnum}}"> Supprimer</a></td>
+    </tr>
+    {{/each}}
 </table>
 <br class="myboth" />

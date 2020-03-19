@@ -11,14 +11,14 @@ let db = require('../configDb');
 * Récupérer l'intégralité les écuries avec l'adresse de la photo du pays de l'écurie
 * @return Un tableau qui contient le N°, le nom de l'écurie et le nom de la photo du drapeau du pays
 */
-module.exports.getInitiales = function (callback) {
+module.exports.getListe = function (callback) {
    // connection à la base
 	db.getConnection(function(err, connexion){
         if(!err){
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
-						let sql = "SELECT DISTINCT SUBSTR(pilnom, 1, 1) AS initiale FROM pilote ";
-						sql += "ORDER BY initiale ASC";
+						let sql = "SELECT pilnum, pilnom, pilprenom, pildatenais FROM pilote ";
+						sql += "ORDER BY pilnom ASC";
 						//console.log (sql);
             connexion.query(sql, callback);
 
@@ -28,17 +28,47 @@ module.exports.getInitiales = function (callback) {
       });
 };
 
-module.exports.getPilotes = function (initiale, callback) {
+module.exports.getPays = function (callback) {
    // connection à la base
 	db.getConnection(function(err, connexion){
         if(!err){
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
-						let sql ="SELECT pi.pilnum, pilnom, pilprenom, phoadresse FROM pilote pi ";
-            sql += "JOIN photo ph ON pi.pilnum = ph.pilnum ";
-            sql += "WHERE pi.pilnom LIKE '"+ initiale +"%' AND ph.phonum = 1";
+						let sql ="SELECT paynom, paynum FROM pays";
 						//console.log (sql);
             connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};
+
+module.exports.getEcurie = function (callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+						let sql ="SELECT ecunom, ecunum FROM ecurie";
+						//console.log (sql);
+            connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};
+
+module.exports.ajouterPilote = function (donnees, callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+						let sql ="INSERT INTO pilote SET ? ";
+						//console.log (sql);
+            connexion.query(sql, donnees, callback);
 
             // la connexion retourne dans le pool
             connexion.release();

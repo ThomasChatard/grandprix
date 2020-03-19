@@ -2,72 +2,61 @@ let model = require('../models/pilote.js');
 
 // ///////////////////////// R E P E R T O I R E    D E S    P I L O T E S
 
-module.exports.Repertoire = 	function(request, response){
-  response.title = 'Répertoire des pilotes';
+module.exports.ListerPilotes = 	function(request, response){
+  response.title = 'Lister les pilotes';
 
-  model.getInitiales( function (err, result) {
+  model.getListe( function (err, result) {
     if (err) {
       // gestion de l'erreur
       console.log(err);
       return;
     }
-    response.listeInitiales = result;
+    response.listePilotes = result;
 
-    response.render('repertoirePilotes', response);
+    response.render('listePilotes', response);
   }) ;
 }
 
-
-module.exports.AfficherPilote = 	function(request, response){
-  let pilnum = request.params.pilnum;
+module.exports.AjouterPilote = function(request, response){
+  response.title = 'Ajout pilote';
   let async = require("async");
-
-  response.title = 'Afficher le pilote' + pilnum;
-
   async.parallel([
-        function (callback) {
-          model.getInitiales(function (err,result) {callback(null,result)});
-        },
-        function (callback){
-          model.getInfoPilotes(pilnum,(function(err,result){callback(null,result)}));
-        }//aficher les infos des pilotes
-      ],
-      function(err,result) {
-        if (err) {
-          // gestion de l'erreur
-          console.log(err);
-          return;
-        }
-        response.listeInitiales = result[0];
-        response.afficherPilote = result[1];
-        response.render('afficherPilote', response);
-      });
+     function(callback)
+     {
+         model.getPays( function (err, resultPays) {callback(null,resultPays)})
+     },
+
+     function(callback)
+     {
+         model.getEcurie( function (err, resultEcurie) {callback(null, resultEcurie)})
+     }
+ ],
+ function(err, result){
+     if (err) {
+         console.log(err);
+         return;
+     }
+     response.resultPays = result[0];
+     response.resultEcurie = result[1];
+     console.log(result[0]);
+     console.log(result[1]);
+     response.render('ajouterPilotes', response);
+ });
 };
 
-module.exports.ListerPilotes = 	function(request, response){
-  let initiale = request.params.initiale;
-  let async = require("async");
-  response.title = 'Liste des pilotes dont le nom commence par' + initiale;
+module.exports.ConfirmerAjoutPilote = 	function(request, response){
+  let donnees = request.body;
 
-  async.parallel ([
-    function (callback){
-      model.getInitiales(function (err,result) {callback(null,result)});
-      //afficher les premières lettres des pilotes
-    },
+  response.title = 'Ajouter un pilote';
 
-    function (callback){
-      model.getPilotes(initiale,(function(err,result){callback(null,result)}));
-    }//aficher les nom, prenoms et photos des pilotes
-
-  ],
-  function(err,result){
+  model.ajouterPilote(donnees, function (err, result) {
     if (err) {
       // gestion de l'erreur
       console.log(err);
       return;
     }
-    response.listeInitiales = result[0];
-    response.listePilotes = result[1];
-    response.render('listePilotes',response);
-  });
+    response.ajouterPilote = result;
+
+    response.render('ajouterPilote', response);
+  }) ;
 };

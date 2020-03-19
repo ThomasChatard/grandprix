@@ -12,9 +12,10 @@ module.exports = function(app){
     app.get('/', HomeController.Index);
     app.get('/accueil', HomeController.Connexion)
 // pilotes
-    app.get('/repertoirePilote', PiloteController.Repertoire);
-    app.get('/listePilotes/:initiale', PiloteController.ListerPilotes);
-    app.get('/afficherPilote/:pilnum', PiloteController.AfficherPilote);
+    app.get('/pilotes', PiloteController.ListerPilotes);
+    app.get('/pilotes/ajouterpilote', PiloteController.AjouterPilote);
+    app.get('/pilotes/modifierpilote/:pilnum', PiloteController.ListerPilotes);
+    app.get('/pilotes/supprimerpilote/:pilnum', PiloteController.ListerPilotes);
 
  // circuits
    app.get('/circuits', CircuitController.ListerCircuit);
