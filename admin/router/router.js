@@ -9,8 +9,7 @@ let CircuitController = require('./../controllers/CircuitController');
 module.exports = function(app){
 
 // Main Routes
-    app.get('/', HomeController.Index);
-    app.get('/accueil', HomeController.Connexion)
+    app.get('/', HomeController.Connexion);
 // pilotes
     app.get('/pilotes', PiloteController.ListerPilotes);
     app.get('/pilotes/ajouterpilote', PiloteController.AjouterPilote);

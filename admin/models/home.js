@@ -11,19 +11,18 @@ let db = require('../configDb');
 * Récupérer l'intégralité les écuries avec l'adresse de la photo du pays de l'écurie
 * @return Un tableau qui contient le N°, le nom de l'écurie et le nom de la photo du drapeau du pays
 */
-module.exports.getDernierResultat = function (callback) {
-   // connection à la base
-	db.getConnection(function(err, connexion){
+module.exports.getMotDePasse = function (callback) {
+    // connection à la base
+    db.getConnection(function(err, connexion){
         if(!err){
-        	  // s'il n'y a pas d'erreur de connexion
-        	  // execution de la requête SQL
-						let sql ="SELECT gp.gpnum, gpnom, gpdate, gpdatemaj FROM grandprix gp ";
-            sql += "ORDER BY gpdate DESC LIMIT 1";
-						//console.log (sql);
+            // s'il n'y a pas d'erreur de connexion
+            // execution de la requête SQL
+            let sql = "Select login, passwd from login";
+            //console.log (sql);
             connexion.query(sql, callback);
 
             // la connexion retourne dans le pool
             connexion.release();
-         }
-      });
+        }
+    });
 };
