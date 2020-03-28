@@ -36,7 +36,21 @@ module.exports.getDetailResultat = function (numeroGp, callback) {
         if(!err){
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
-						let sql ="SELECT co.gpnum, p.pilnum, tempscourse, p.pilnom, p.pilprenom FROM course co ";
+						let sql = "SELECT @row_number:=@row_number+1 AS place, co.gpnum, p.pilnum, tempscourse, p.pilnom, p.pilprenom, "
+						sql += "CASE @row_number "
+						sql += "WHEN 1 THEN 25 "
+						sql += "WHEN 2 THEN 18 "
+						sql += "WHEN 3 THEN 15 "
+						sql += "WHEN 4 THEN 12 "
+						sql += "WHEN 5 THEN 10 "
+						sql += "WHEN 6 THEN 8 "
+						sql += "WHEN 7 THEN 6 "
+						sql += "WHEN 8 THEN 4 "
+						sql += "WHEN 9 THEN 2 "
+						sql += "WHEN 10 THEN 1 "
+						sql += "ELSE 0 "
+						sql += "END as nombrePoints "
+						sql += "FROM (SELECT @row_number:=0) AS t, course co ";
             sql += "JOIN pilote p ON p.pilnum = co.pilnum ";
             sql += "JOIN grandprix gp ON co.gpnum = gp.gpnum ";
             sql += "WHERE co.gpnum = "+ numeroGp +" ORDER BY tempscourse LIMIT 10";

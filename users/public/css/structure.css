@@ -102,7 +102,7 @@ a  {
 
 .infobulle .contenuInfobulle {
   visibility: hidden;
-  width: 200%;
+  width: 300px;
   background-color: white;
   text-align: center;
   border-radius: 6px;
@@ -111,10 +111,11 @@ a  {
   top: 100%;
   left: 50%;
   border: solid black 1px;
+  z-index: 1;
 }
 
 .infobulle .contenuInfobulle::after {
-  /* position: absolute; */
+   position: absolute;
 }
 
 .infobulle:hover .contenuInfobulle {

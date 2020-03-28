@@ -30,7 +30,10 @@ module.exports.AfficherPilote = 	function(request, response){
         },
         function (callback){
           model.getInfoPilotes(pilnum,(function(err,result){callback(null,result)}));
-        }//aficher les infos des pilotes
+        },
+        function (callback) {
+          model.getSponsors(pilnum,(function (err,result) {callback(null,result)}));
+        }
       ],
       function(err,result) {
         if (err) {
@@ -40,6 +43,7 @@ module.exports.AfficherPilote = 	function(request, response){
         }
         response.listeInitiales = result[0];
         response.afficherPilote = result[1];
+        response.afficherSponsor = result[2];
         response.render('afficherPilote', response);
       });
 };

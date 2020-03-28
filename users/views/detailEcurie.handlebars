@@ -22,9 +22,9 @@
 <p><strong>Pilotes :</strong></p>
 {{#each piloteEcurie}}
 <div class="infobulle">
-  <a href=""><p>{{pilprenom}} {{pilnom}}</p></a>
-  <span class="contenuInfobulle"><img class ="photoPilote" src="/image/pilote/{{phoadresse}}" alt="Photo du pilote {{pilprenom}} {{pilnom}}"/><p><strong>{{pilnom}} {{pilprenom}}</strong></p><p>{{piltexte}}</p></span>
-</div>
+  <a href="../afficherPilote/{{pilnum}}"><p>{{pilprenom}} {{pilnom}}</p></a>
+  <span class="contenuInfobulle"><img class ="photoPilote" src="/image/pilote/{{phoadresse}}" alt="Photo du pilote {{pilprenom}} {{pilnom}}"/><p><strong>{{pilnom}} {{pilprenom}}</strong></p><p>{{piltexte}} ...</p></span>
+</div><br>
 {{/each}}
 <table class="listeVoitureEcu">
   <tr>

@@ -50,14 +50,28 @@ module.exports.getPilotes = function (initiale, callback) {
 module.exports.getInfoPilotes = function(pilnum, callback) {
     db.getConnection(function (err,connexion) {
         if(!err){
-            let sql ="SELECT pi.pilnum, pilnom, pilprenom, pildatenais,pilpoids,piltaille,piltexte,phoadresse,paynat, ecunom, sponom,sposectactivite FROM pilote pi "
+            let sql ="SELECT pi.pilnum, pilnom, pilprenom, pildatenais, pilpoids, piltaille, piltexte, phoadresse, paynat, ecunom FROM pilote pi "
             sql = sql + "left outer JOIN photo ph ON pi.pilnum = ph.pilnum "
             sql = sql + "left outer JOIN ecurie e ON pi.ecunum = e.ecunum "
             sql = sql + "left outer JOIN pays pa ON pi.paynum = pa.paynum "
-            sql = sql + "left outer JOIN sponsorise sp ON pi.pilnum = sp.pilnum "
-            sql = sql + "left outer JOIN sponsor spo ON sp.sponum = spo.sponum "
-            sql = sql + "WHERE pi.PILNUM = "+pilnum+" ";
-            console.log (sql);
+            sql = sql + "WHERE pi.pilnum = "+pilnum+" AND ph.phonum = 1";
+            //console.log (sql);
+            connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+        }
+    });
+};
+
+module.exports.getSponsors = function(pilnum, callback) {
+    db.getConnection(function (err,connexion) {
+        if(!err){
+            let sql ="SELECT pi.pilnum, sponom, sposectactivite FROM pilote pi "
+            sql = sql + "JOIN sponsorise sp ON sp.pilnum = pi.pilnum "
+						sql = sql + "JOIN sponsor s ON s.sponum = sp.sponum "
+            sql = sql + "WHERE pi.pilnum = "+pilnum + " ";
+            //console.log (sql);
             connexion.query(sql, callback);
 
             // la connexion retourne dans le pool

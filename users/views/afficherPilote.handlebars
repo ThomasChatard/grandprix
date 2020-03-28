@@ -1,45 +1,37 @@
 {{> repertoirePilotesPartial}}
 <table class="listePil">
-
-
         {{#each afficherPilote}}
-            <img class ="photoPilote" src="/image/pilote/{{phoadresse}}" alt="Photo du pilote {{pilprenom}} {{pilnom}}" />
-
-
+        <img class ="photoPilote" src="/image/pilote/{{phoadresse}}" alt="Photo du pilote {{pilprenom}} {{pilnom}}" />
     <tr>
-           <td class="omPil">   NOM : {{pilprenom}} {{pilnom}}</td>
+           <td class="NomPil"> <strong> Nom : </strong> {{pilprenom}} {{pilnom}}</td>
 
     </tr>
     <tr>
-            <td class="DatePil"> Date de naissance : {{formatDate pildatenais 'dddd D MMMM YYYY '}}</td>
-            <td>Poids : {{pilpoids}} kg</td>
+            <td class="DatePil"> <strong> Date de naissance : </strong> {{formatDate pildatenais 'dddd D MMMM YYYY '}}</td>
+            <td><strong>Poids :</strong> {{pilpoids}} kg</td>
     </tr>
     <tr>
-            <td class="NatPil"> Nationalité : {{paynat}}</td>
-            <td>Taille : {{piltaille}} Cm</td>
+            <td class="NatPil"> <strong> Nationalité : </strong> {{paynat}}</td>
+            <td><strong>Taille : </strong> {{piltaille}} Cm</td>
     </tr>
     <tr>
-
-
         {{#if ecunom}}
-            <td class="EcuPil"> Ecurie : {{ecunom}}</td>
+            <td class="EcuPil"> <strong> Ecurie : </strong> {{ecunom}}</td>
         {{else}}
-           <td> Ecurie : Pas d'écurie cette année.</td>
+           <td> <strong>Ecurie :</strong> Pas d'écurie cette année</td>
         {{/if}}
-
     </tr>
 </table>
         {{/each}}
-            {{#if sponom}}
-            Principaux sponsors :
 
-            {{> listerSponsor}}
-
-            {{else}}
-
-            {{/if}}
+        {{#if afficherSponsor}}
+        <p><strong>Principaux sponsors :</strong></p>
+        {{#each afficherSponsor}}
+        <p><strong>{{sponom}}</strong> ({{sposectactivite}})</p>
+        {{/each}}
+        {{/if}}
 {{#each afficherPilote}}
-   <textarea >Qui suis-je ? : {{piltexte}}</textarea>
+   <p><strong>Qui suis-je ? :</strong> {{piltexte}}</p>
 {{/each}}
 
     <br class="myboth" />
