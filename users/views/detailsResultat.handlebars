@@ -1,8 +1,8 @@
 {{> listerGpPartial}}
 
 {{#each detailGp}}
-
-<h3 class="non">{{gpnom}} ({{formatDate gpdate 'DD/MM/YYYY'}})</h3>
+<div class="res">
+<h3 class="nom">{{gpnom}} ({{formatDate gpdate 'DD/MM/YYYY'}})</h3>
 
 {{/each}}
 
@@ -35,3 +35,4 @@
 {{gpcommentaire}}
 
 {{/each}}
+</div>

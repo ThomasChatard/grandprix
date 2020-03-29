@@ -75,7 +75,7 @@ a  {
   width: 125px;
 }
 
-.listePil, .listeInit{
+.listePil, .listeInit, .listePilDet{
   display: flex;
   justify-content: center;
 }
@@ -136,4 +136,20 @@ a  {
 .titreAccueil{
   text-decoration: underline;
   text-align:center;
+}
+
+.listePilDet{
+  margin-top: -10%;
+}
+
+.photoCircuit{
+  margin-top: -35%;
+}
+
+.menuEcu{
+  margin-top: -70%;
+}
+
+.res{
+  margin-top: -30%;
 }
