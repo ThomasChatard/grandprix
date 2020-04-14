@@ -1,0 +1,32 @@
+<h2>Modifier une écurie</h2>
+
+<form action="#" id="insert" method="post">
+
+  <p>Nom <input type="text" name="ecunom" size="10" value="{{detailEcurie.ecunom}}" required></p>
+
+  <p>Directeur <input type="text" name="ecunomdir" size="10" value="{{detailEcurie.ecunomdir}}" required></p>
+
+  <p>Fournisseur de pneus <select name="fpnum" id="idFpnum">
+      {{#each resultFournisseur}}
+          <option value="{{this.fpnum}}">{{this.fpnom}}</option>
+      {{/each}}
+  </select></p>
+
+  <p>Adresse du siège <input type="text" name="ecuadrsiege" size="100" value="{{detailEcurie.ecuadrsiege}}" required></p>
+
+  <p>Points <input type="number" name="ecupoints" size="10"  {{#if detailEcurie.ecupoints}}value="{{detailEcurie.ecupoints}}" {{else}} value="0"{{/if}} required></p>
+
+  <p>Pays <select name="paynum" id="idPaynum">
+      {{#each resultPays}}
+          <option value="{{this.paynum}}">{{this.paynom}}</option>
+      {{/each}}
+
+  </select></p>
+
+  <input type="submit" value="Valider"/>
+</form>
+
+<script>
+document.getElementById("idPaynum").value={{detailEcurie.paynum}};
+document.getElementById("idFpnum").value={{detailEcurie.fpnum}};
+</script>

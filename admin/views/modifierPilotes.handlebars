@@ -1,0 +1,34 @@
+<h2>Modifier un pilote</h2>
+
+<form action="#" id="insert" method="post">
+
+  <p>Prénom <input type="text" name="pilprenom" size="10" value="{{infoPilote.pilprenom}}" required></p>
+  <p>Nom <input type="text" name="pilnom" size="10" value="{{infoPilote.pilnom}}" required ></p>
+  <p>Date de naissance <input type="date" name="pildatenais" value="{{formatDate infoPilote.pildatenais 'YYYY-MM-DD'}}"  required></p>
+  <p>Nationalité <select name="paynum" id="idPaynum">
+      {{#each resultPays}}
+          <option value="{{this.paynum}}">{{this.paynat}}</option>
+      {{/each}}
+
+  </select></p>
+  <p>Ecurie
+  <select name="ecunum" id="idecunum">
+      <option value="null">Pas d'écurie</option>
+      {{#each resultEcurie}}
+        <option value="{{this.ecunum}}">{{this.ecunom}}</option>
+      {{/each}}
+  </select>
+
+  </p>
+<p>Points <input type="number" name="pilpoints"  {{#if infoPilote.pilpoints}}value="{{infoPilote.pilpoints}}" {{else}} value="0"{{/if}} size="10" required></p>
+  <p>Poids <input type="number" name="pilpoids" value="{{infoPilote.pilpoids}}" size="10" required></p>
+  <p>Taille <input type="number" name="piltaille" value="{{infoPilote.piltaille}}" size="10" required></p>
+  <p>Description <input type="text" name="piltexte" value="{{infoPilote.piltexte}}" size="500" required></p>
+  <input type="submit" value="Valider"/>
+</form>
+
+<script>
+document.getElementById("idPaynum").value={{infoPilote.paynum}};
+document.getElementById("idecunum").value={{infoPilote.ecunum}};
+
+</script>

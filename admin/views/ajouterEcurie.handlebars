@@ -1,0 +1,29 @@
+<h2>Ajouter une écurie</h2>
+
+<form action="#" id="insert" method="post">
+
+  <p>Nom <input type="text" name="ecunom" size="10" required></p>
+
+  <p>Directeur <input type="text" name="ecunomdir" size="10" required></p>
+
+  <p>Fournisseur de pneus <select name="fpnum">
+      {{#each resultFournisseur}}
+          <option value="{{this.fpnum}}">{{this.fpnom}}</option>
+      {{/each}}
+  </select></p>
+
+  <p>Adresse du siège <input type="text" name="ecuadrsiege" size="100" required></p>
+
+  <p>Points <input type="number" name="ecupoints" size="10" required></p>
+
+  <p>Pays <select name="paynum">
+      {{#each resultPays}}
+          <option value="{{this.paynum}}">{{this.paynom}}</option>
+      {{/each}}
+
+  </select></p>
+
+  <p>Image <input name="ecuadresseimage" type="file" required></p>
+
+  <input type="submit" value="Valider"/>
+</form>
