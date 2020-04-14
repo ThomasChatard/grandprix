@@ -75,22 +75,18 @@ module.exports.ajouterSponsor = function (donnees, callback) {
       });
 };
 
-module.exports.supprimerPilote = function(num, callbackcou, callbackess, callbackspo, callbackpho, callbackpil){
+module.exports.supprimerSponsor = function(num, callbackspo, callbackfin, callbackspo2){
 
     db.getConnection(function(err, connexion){
         if(!err){
             // s'il n'y a pas d'erreur de connexion
             // execution de la requête SQL
-            let sqlpil ="DELETE FROM pilote where pilnum=" + num;
-						let sqlpho ="DELETE FROM photo where pilnum=" + num;
-						let sqlspo ="DELETE FROM sponsorise where pilnum=" + num;
-						let sqless ="DELETE FROM essais where pilnum=" + num;
-						let sqlcou ="DELETE FROM course where pilnum=" + num;
-						connexion.query(sqlcou, callbackcou);
-						connexion.query(sqless, callbackess);
+            let sqlspo ="DELETE FROM sponsor where sponum=" + num;
+						let sqlfin ="DELETE FROM finance where sponum=" + num;
+						let sqlspo2 ="DELETE FROM sponsorise where sponum=" + num;
+						connexion.query(sqlspo2, callbackspo2);
+						connexion.query(sqlfin, callbackfin);
 						connexion.query(sqlspo, callbackspo);
-						connexion.query(sqlpho, callbackpho);
-            connexion.query(sqlpil, callbackpil);
 
             //console.log(sql);
             // la connexion retourne dans le pool
@@ -101,7 +97,7 @@ module.exports.supprimerPilote = function(num, callbackcou, callbackess, callbac
 
 
 
-module.exports.modifierPilote = function (donnees,num, callback) {
+module.exports.modifierSponsor = function (donnees,num, callback) {
     // connection à la base
 
     db.getConnection(function(err, connexion){
@@ -109,32 +105,12 @@ module.exports.modifierPilote = function (donnees,num, callback) {
             // s'il n'y a pas d'erreur de connexion
             // execution de la requête SQL
             let sql ="UPDATE sponsor SET sponom = '" + donnees["sponom"]+ "', sposectactivite =";
-             sql+=" '"+  donnees["sposectactivite"] + "', ecunum = '"+ donnees["ecunum"]+"'" ;
+             sql+=" '"+  donnees["sposectactivite"] +"'" ;
              sql += " where sponum="+num;
             //console.log (sql);
             connexion.query(sql, donnees, callback);
 
             console.log(sql);
-            // la connexion retourne dans le pool
-            connexion.release();
-        }
-    });
-};
-
-
-module.exports.getInfoPilotes = function(pilnum, callback) {
-    db.getConnection(function (err,connexion) {
-        if(!err){
-            let sql ="SELECT pi.ecunum, pi.paynum, pi.pilnum, pilnom, pilprenom, pildatenais,pilpoids,pilpoints,piltaille,piltexte,phoadresse,paynat, ecunom, sponom,sposectactivite FROM pilote pi "
-            sql = sql + "left outer JOIN photo ph ON pi.pilnum = ph.pilnum "
-            sql = sql + "left outer JOIN ecurie e ON pi.ecunum = e.ecunum "
-            sql = sql + "left outer JOIN pays pa ON pi.paynum = pa.paynum "
-            sql = sql + "left outer JOIN sponsorise sp ON pi.pilnum = sp.pilnum "
-            sql = sql + "left outer JOIN sponsor spo ON sp.sponum = spo.sponum "
-            sql = sql + "WHERE pi.PILNUM = "+pilnum+" ";
-            console.log (sql);
-            connexion.query(sql, callback);
-
             // la connexion retourne dans le pool
             connexion.release();
         }

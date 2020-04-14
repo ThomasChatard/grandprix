@@ -87,13 +87,13 @@ module.exports.ModifierSponsor = function(request, response){
 };
 
 
-module.exports.ConfirmerModifierEcurie = 	function(request, response){
+module.exports.ConfirmerModifierSponsor = 	function(request, response){
     let donnees = request.body;
-    let num = request.params.ecunum;
+    let num = request.params.sponum;
 
-    response.title = 'Modifier une écurie';
+    response.title = 'Modifier un sponsor';
 
-    model.modifierEcurie(donnees,num, function (err, result) {
+    model.modifierSponsor(donnees,num, function (err, result) {
         if (err) {
             // gestion de l'erreur
             console.log(err);
@@ -101,18 +101,18 @@ module.exports.ConfirmerModifierEcurie = 	function(request, response){
         }
 
 
-        response.status(301).redirect(request.baseUrl+'/ecuries');
+        response.status(301).redirect(request.baseUrl+'/sponsors');
     }) ;
 };
 
 
 
-module.exports.SupprimerEcurie = 	function(request, response){
-    let num = request.params.ecunum;
+module.exports.SupprimerSponsor = 	function(request, response){
+    let num = request.params.sponum;
 
-    response.title = 'Supprimer une écurie';
+    response.title = 'Supprimer un sponsor';
 
-    model.supprimerEcurie(num, function (err, result) {
+    model.supprimerSponsor(num, function (err, result) {
         if (err) {
             // gestion de l'erreur
             console.log(err);
@@ -120,6 +120,6 @@ module.exports.SupprimerEcurie = 	function(request, response){
         }
 
 
-        response.status(301).redirect(request.baseUrl+'/ecuries');
+        response.status(301).redirect(request.baseUrl+'/sponsors');
     }) ;
 };

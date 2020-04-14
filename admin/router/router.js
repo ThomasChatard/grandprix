@@ -10,7 +10,10 @@ let SponsorController = require('./../controllers/SponsorController');
 module.exports = function(app){
 
 // Main Routes
-    app.get('/', HomeController.Connexion);
+    app.get('/', HomeController.Index);
+    app.get('/accueil', HomeController.Index);
+    app.post('/', HomeController.Connexion);
+    app.post('/accueil', HomeController.Connexion);
 // pilotes
     app.get('/pilotes', PiloteController.ListerPilotes);
     app.get('/pilotes/ajouterpilote', PiloteController.AjouterPilote);
@@ -20,8 +23,12 @@ module.exports = function(app){
     app.post('/pilotes/modifierpilote/:pilnum', PiloteController.ConfirmerModifierPilote);
 
     // circuits
-   app.get('/circuits', CircuitController.ListerCircuit);
-   app.get('/detailCircuit/:numero', CircuitController.DetailCircuit);
+    app.get('/circuits', CircuitController.ListerCircuits);
+    app.get('/circuits/ajoutercircuit', CircuitController.AjouterCircuit);
+    app.get('/circuits/modifiercircuit/:cirnum', CircuitController.ModifierCircuit);
+    app.get('/circuits/supprimercircuit/:cirnum', CircuitController.SupprimerCircuit);
+    app.post('/circuits/ajoutercircuit', CircuitController.ConfirmerAjoutCircuit);
+    app.post('/circuits/modifiercircuit/:cirnum', CircuitController.ConfirmerModifierCircuit);
 
 // Ecuries
    app.get('/ecuries', EcurieController.ListerEcuries);
@@ -39,9 +46,9 @@ module.exports = function(app){
    app.get('/sponsors', SponsorController.ListerSponsors);
    app.get('/sponsors/ajoutersponsor', SponsorController.AjouterSponsor);
    app.get('/sponsors/modifiersponsor/:sponum', SponsorController.ModifierSponsor);
-   // app.get('/sponsors/supprimersponsor/:ecunum', SponsorController.SupprimerSponsor);
+   app.get('/sponsors/supprimersponsor/:sponum', SponsorController.SupprimerSponsor);
    app.post('/sponsors/ajoutersponsor', SponsorController.ConfirmerAjoutSponsor);
-   // app.post('/sponsors/modifiersponsor/:ecunum', SponsorController.ConfirmerModifierSponsor);
+   app.post('/sponsors/modifiersponsor/:sponum', SponsorController.ConfirmerModifierSponsor);
 
    //Retour au site
    //app.get('/RetourAuSite', HomeController.RetourAuSite);

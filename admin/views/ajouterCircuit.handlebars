@@ -1,0 +1,25 @@
+<h2>Ajouter un circuit</h2>
+
+<form action="#" id="insert" method="post">
+
+  <p>Nom <input type="text" name="cirnom" size="10" required></p>
+
+  <p>Longueur <input type="text" name="cirlongueur" size="10" required></p>
+
+  <p>Pays
+  <select name="paynum">
+      {{#each resultPays}}
+        <option value="{{this.paynum}}">{{this.paynom}}</option>
+      {{/each}}
+  </select>
+
+  </p>
+
+  <p>Image <input name="ciradresseimage" type="file" required></p>
+
+  <p>Nombre de spectateurs <input type="text" name="cirnbspectateurs" size="10" required> personnes</p>
+
+  <p>Description <input type="text" name="cirtext" size="500" required></p>
+
+  <input type="submit" value="Valider"/>
+</form>

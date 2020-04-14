@@ -1,0 +1,27 @@
+<h2>Modifier un circuit</h2>
+
+<form action="#" id="insert" method="post">
+
+  <p>Nom <input type="text" name="cirnom" size="10" value="{{detailCircuit.cirnom}}" required></p>
+
+  <p>Longueur <input type="text" name="cirlongueur" size="10" value="{{detailCircuit.cirlongueur}}" required></p>
+
+  <p>Pays
+  <select name="paynum" id="idPaynum">
+      {{#each resultPays}}
+        <option value="{{this.paynum}}">{{this.paynom}}</option>
+      {{/each}}
+  </select>
+
+  </p>
+
+  <p>Nombre de spectateurs <input type="text" name="cirnbspectateurs" size="10" value="{{detailCircuit.cirnbspectateurs}}" required> personnes</p>
+
+  <p>Description <input type="text" name="cirtext" size="500" value="{{detailCircuit.cirtext}}" required></p>
+
+  <input type="submit" value="Valider"/>
+</form>
+
+<script>
+document.getElementById("idPaynum").value={{detailCircuit.paynum}};
+</script>

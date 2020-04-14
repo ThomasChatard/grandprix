@@ -74,7 +74,7 @@ module.exports.ajouterPilote = function (donnees, callback) {
       });
 };
 
-module.exports.supprimerPilote = function(num, callbackcou, callbackess, callbackspo, callbackpho, callbackpil){
+module.exports.supprimerPilote = function(num, callbackcou, callbackess, callbackspo, callbackpho, callback){
 
     db.getConnection(function(err, connexion){
         if(!err){
@@ -110,7 +110,7 @@ module.exports.modifierPilote = function (donnees,num, callback) {
             let sql ="UPDATE  pilote SET pilnom = '" + donnees["pilnom"]+ "', pilprenom =";
              sql+=" '"+  donnees["pilprenom"] + "', pildatenais = '"+ donnees["pildatenais"]+"'" ;
              sql += ", pilpoints = "+ donnees["pilpoints"]+", pilpoids = " + donnees["pilpoids"]+", ";
-             sql+=  "piltaille = " + donnees["piltaille"]+", piltexte = '"+ donnees["piltexte"] +"'";
+             sql+=  "piltaille = " + donnees["piltaille"]+", piltexte ='"+ donnees["piltexte"] +"'";
              sql+= ",paynum= "+ donnees["paynum"]+",ecunum="+ donnees["ecunum"] +" where pilnum="+num;
             //console.log (sql);
             connexion.query(sql, donnees, callback);

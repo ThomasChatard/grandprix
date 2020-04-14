@@ -15,6 +15,7 @@
 	<div id="header">
 	<img src="/image/staff_admin.jpg" alt="WROOM l'encyclopédie de la F1" />
 	</div>
+	{{#if session.admin}}
 	<div id="menu">
 		<a href="/pilotes">PILOTES</a> |
 		<a href="/circuits">CIRCUITS</a> |
@@ -23,6 +24,7 @@
 		<a href="/sponsors">SPONSORS</a> |
 		<a href="">Retour au site</a>
 	</div>
+	{{/if}}
 	<div id="contenu">
 		<br/>
 		<br/>
